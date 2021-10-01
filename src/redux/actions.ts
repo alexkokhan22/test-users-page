@@ -1,11 +1,10 @@
 import {UsersType} from "./usersPageReducer";
 
-export const setUsersAC = (users: Array<UsersType>) => ({type: 'UsersPage/SET-USERS', users} as const)
+export const setUsersAC = (users: Array<UsersType> | undefined) => ({type: 'UsersPage/SET-USERS', users} as const)
 
-export const filteredUsersAC = (users: Array<UsersType>, value: string) => ({
+export const filteredUsersAC = (filteredUsers: Array<UsersType> | undefined) => ({
     type: 'UsersPage/FILTERED-USERS',
-    users,
-    value
+    filteredUsers
 } as const)
 
 //actions types

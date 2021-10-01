@@ -13,10 +13,10 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
                 usersList: action.users
             }
         case 'UsersPage/FILTERED-USERS':
-        /*return action.users.filter((u) => {
-            return (u.name && u.email.toLowerCase().includes(action.value.toLowerCase()))
-                || (u.username.toLowerCase().includes(action.value.toLowerCase()))
-        })*/
+            return {
+                ...state,
+                usersList: action.filteredUsers
+            }
         default:
             return state
     }
@@ -24,7 +24,7 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
 
 
 //types
-type InitialStateType = { usersList: Array<UsersType> | null }
+type InitialStateType = { usersList: Array<UsersType> | undefined }
 
 export type UsersType = {
     id: number
