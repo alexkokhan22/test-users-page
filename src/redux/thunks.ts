@@ -7,7 +7,7 @@ export const fetchUsersTC = () => {
     return async (dispatch: Dispatch) => {
         const response = await usersAPI.getUsers()
         try {
-            setUsersAC(response.data)
+            dispatch(setUsersAC(response.data))
         } catch (e) {
             console.log(e)
         }
