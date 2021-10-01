@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
-import {usersAPI} from "../api/usersPageApi";
-import {setUsersAC} from "./actions";
+import {usersAPI} from "../../api/usersPageApi";
+import {setUsersAC} from "./actionsUsersPage";
 
 
 export const fetchUsersTC = () => {

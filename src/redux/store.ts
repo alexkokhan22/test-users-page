@@ -1,10 +1,12 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk";
-import {usersPageReducer} from "./usersPageReducer";
+import {usersPageReducer} from "./users-page/usersPageReducer";
+import {modalWindowDataReducer} from "./modal/modalWindowReducer";
 
 
 const rootReducer = combineReducers({
-    users: usersPageReducer
+    users: usersPageReducer,
+    dataModalWindow: modalWindowDataReducer
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

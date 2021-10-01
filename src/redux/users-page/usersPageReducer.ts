@@ -1,4 +1,4 @@
-import {ActionsType} from "./actions";
+import {ActionsType} from "./actionsUsersPage";
 
 
 const initialState: InitialStateType = {
@@ -11,11 +11,6 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
             return {
                 ...state,
                 usersList: action.users
-            }
-        case 'UsersPage/FILTERED-USERS':
-            return {
-                ...state,
-                usersList: action.filteredUsers
             }
         default:
             return state
