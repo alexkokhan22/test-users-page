@@ -8,6 +8,7 @@ import {ModalWindow} from "../modal-window/ModalWindow";
 import styles from "./UsersPage.module.css";
 import {modalDataType} from "../../redux/modal/modalWindowReducer";
 import {setDataModalAC} from "../../redux/modal/actionsModal";
+import {deleteUsersAC} from "../../redux/users-page/actionsUsersPage";
 
 
 export const UsersPageContainer: React.FC<UsersPageContainerPropsType> = ({filter, filteredUsers}) => {
@@ -27,10 +28,14 @@ export const UsersPageContainer: React.FC<UsersPageContainerPropsType> = ({filte
         dispatch(setDataModalAC(value))
     }
 
+    const deleteUser = (id: number) => {
+        dispatch(deleteUsersAC(id))
+    }
 
     return (
         <div>
-            <UsersPage users={filteredUsers} backlight={backlight} activateModal={activateModal}/>
+            <UsersPage users={filteredUsers} backlight={backlight} activateModal={activateModal}
+                       deleteUser={deleteUser}/>
             <ModalWindow activeModal={activeModal} setActiveModal={setActiveModal}>
                 <div>
                     <div className={styles.modalStyle}>

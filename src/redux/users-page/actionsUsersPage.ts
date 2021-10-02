@@ -5,11 +5,15 @@ export const setUsersAC = (users: Array<UsersType> | undefined) => ({type: 'User
 
 export const searchUsersAC = (value: string) => ({type: 'UserPage/SEARCH', value} as const)
 
+export const deleteUsersAC = (id: number) => ({type: 'UserPage/DELETE-USER', id} as const)
+
 
 //actions types
-export type ActionsUsersPageType = setUsersActionType | SearchActionType
+export type ActionsUsersPageType = SetUsersActionType | SearchActionType | DeleteUsersActionType
 
-type setUsersActionType = ReturnType<typeof setUsersAC>
+type SetUsersActionType = ReturnType<typeof setUsersAC>
 
 type SearchActionType = ReturnType<typeof searchUsersAC>
+
+type DeleteUsersActionType = ReturnType<typeof deleteUsersAC>
 

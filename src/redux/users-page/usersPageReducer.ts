@@ -16,6 +16,7 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
                 usersList: action.users,
                 filteredUsers: action.users
             }
+
         case 'UserPage/SEARCH': {
             const {value} = action;
 
@@ -27,6 +28,13 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
 
             return {...state, value, filteredUsers};
         }
+
+        case "UserPage/DELETE-USER": {
+            const {id} = action
+            const deleteUsers = state.usersList?.filter(el => el.id !== id)
+            return {...state,  filteredUsers: deleteUsers, usersList: deleteUsers}
+        }
+
         default:
             return state
     }

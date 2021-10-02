@@ -29,6 +29,7 @@ function App() {
 
     const reset = () => {
         dispatch(searchUsersAC(''))
+        dispatch(fetchUsersTC())
     }
 
     if (loading) {
