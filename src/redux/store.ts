@@ -8,7 +8,7 @@ import {loadingAppReducer} from "./app/appReducer";
 const rootReducer = combineReducers({
     users: usersPageReducer,
     dataModalWindow: modalWindowDataReducer,
-    loading: loadingAppReducer
+    loading: loadingAppReducer,
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

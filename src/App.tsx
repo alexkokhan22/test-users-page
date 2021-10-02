@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUsersTC} from "./redux/users-page/thunksUsersPage";
@@ -7,35 +7,29 @@ import {Preloader} from "./components/preloader/Preloader";
 import {AppRootStateType} from "./redux/store";
 import {SearchField} from "./components/search-field/SearchField";
 import {UsersType} from "./redux/users-page/usersPageReducer";
+import {searchUsersAC} from "./redux/users-page/actionsUsersPage";
+
 
 function App() {
-    const dispatch = useDispatch()
-
     const loading = useSelector<AppRootStateType, boolean>(el => el.loading.loading)
 
-    const users = useSelector<AppRootStateType, Array<UsersType> | undefined>(state => state.users.usersList)
+    const filteredUsers = useSelector<AppRootStateType, Array<UsersType> | undefined>(state => state.users.filteredUsers)
 
-    const [filter, setFilter] = useState('')
+    const filter = useSelector<AppRootStateType, string>(state => state.users.value)
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchUsersTC())
     }, [])
 
-    const search = (value: string) => value.toLowerCase().includes(filter.toLowerCase())
-
-    const filteredUsers = users?.filter((u => {
-            return search(u.name) || search(u.username) || search(u.email)
-        }
-    ))
-
     const onChangeFilter = (e: ChangeEvent<HTMLInputElement>) => {
-        setFilter(e.currentTarget.value)
+        dispatch(searchUsersAC(e.currentTarget.value))
     }
 
     const reset = () => {
-        setFilter('')
+        dispatch(searchUsersAC(''))
     }
-
 
     if (loading) {
         return <Preloader/>

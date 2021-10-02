@@ -1,17 +1,31 @@
-import {ActionsType} from "./actionsUsersPage";
+import {ActionsUsersPageType, searchUsersAC} from "./actionsUsersPage";
 
 
 const initialState: InitialStateType = {
-    usersList: []
+    usersList: [],
+    value: '',
+    filteredUsers: []
 }
 
-export const usersPageReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
+
+
+export const usersPageReducer = (state: InitialStateType = initialState, action: ActionsUsersPageType): InitialStateType => {
     switch (action.type) {
         case 'UsersPage/SET-USERS':
             return {
                 ...state,
-                usersList: action.users
+                usersList: action.users,
+                filteredUsers: action.users
             }
+        case 'UserPage/SEARCH': {
+            const {value} = action;
+            const filteredUsers = state.usersList?.filter(u => {
+                return u.name.toLowerCase().includes(value.toLowerCase())
+                    || u.username.toLowerCase().includes(value.toLowerCase())
+                    || u.email.toLowerCase().includes(value.toLowerCase())
+            })
+            return {...state, value, filteredUsers};
+        }
         default:
             return state
     }
@@ -19,7 +33,11 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
 
 
 //types
-type InitialStateType = { usersList: Array<UsersType> | undefined }
+type InitialStateType = {
+    usersList: Array<UsersType> | undefined,
+    value: string,
+    filteredUsers: Array<UsersType> | undefined
+}
 
 export type UsersType = {
     id: number
