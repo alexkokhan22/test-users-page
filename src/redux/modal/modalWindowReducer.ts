@@ -1,7 +1,12 @@
 import {ActionsModalWindowType} from "./actionsModal";
 
 const InitialState: InitialStateType = {
-    data: []
+    data: {
+        street: '',
+        city: '',
+        suite: '',
+        nameCompany: ''
+    }
 }
 
 export const modalWindowDataReducer = (state: InitialStateType = InitialState, action: ActionsModalWindowType): InitialStateType => {
@@ -19,12 +24,12 @@ export const modalWindowDataReducer = (state: InitialStateType = InitialState, a
 
 
 //types
-type InitialStateType = { data: Array<modalDataType> | undefined }
+type InitialStateType = { data: modalDataType}
 
 export type modalDataType = {
     street: string
     suite: string
     city: string
-    name: string
+    nameCompany: string
 }
 

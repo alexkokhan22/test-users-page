@@ -1,6 +1,7 @@
 import {modalDataType} from "./modalWindowReducer";
 
-export const setDataModalAC = (data: Array<modalDataType> | undefined) => ({type: 'ModalWindow/SET-DATA', data} as const)
+//actions
+export const setDataModalAC = (data: modalDataType) => ({type: 'ModalWindow/SET-DATA', data} as const)
 
 //actions types
 export type ActionsModalWindowType = setUsersActionType

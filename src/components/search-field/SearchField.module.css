@@ -1,0 +1,23 @@
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.input {
+    width: 26%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: antiquewhite;
+}
+
+@media (max-width: 945px) {
+    .input {
+        width: 70%;
+    }
+}
