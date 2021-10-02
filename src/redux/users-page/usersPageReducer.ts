@@ -1,4 +1,4 @@
-import {ActionsUsersPageType, searchUsersAC} from "./actionsUsersPage";
+import {ActionsUsersPageType} from "./actionsUsersPage";
 
 
 const initialState: InitialStateType = {
@@ -6,7 +6,6 @@ const initialState: InitialStateType = {
     value: '',
     filteredUsers: []
 }
-
 
 
 export const usersPageReducer = (state: InitialStateType = initialState, action: ActionsUsersPageType): InitialStateType => {
@@ -19,11 +18,13 @@ export const usersPageReducer = (state: InitialStateType = initialState, action:
             }
         case 'UserPage/SEARCH': {
             const {value} = action;
+
+            const search = (item: string) => item.toLowerCase().includes(value.toLowerCase())
+
             const filteredUsers = state.usersList?.filter(u => {
-                return u.name.toLowerCase().includes(value.toLowerCase())
-                    || u.username.toLowerCase().includes(value.toLowerCase())
-                    || u.email.toLowerCase().includes(value.toLowerCase())
+                return search(u.name) || search(u.username) || search(u.email)
             })
+
             return {...state, value, filteredUsers};
         }
         default:
