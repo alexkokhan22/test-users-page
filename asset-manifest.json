@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/test-users-page/static/css/main.479c0f13.chunk.css",
+    "main.js": "/test-users-page/static/js/main.6a2e1f35.chunk.js",
+    "main.js.map": "/test-users-page/static/js/main.6a2e1f35.chunk.js.map",
+    "runtime-main.js": "/test-users-page/static/js/runtime-main.e355f00d.js",
+    "runtime-main.js.map": "/test-users-page/static/js/runtime-main.e355f00d.js.map",
+    "static/js/2.fe8e06fa.chunk.js": "/test-users-page/static/js/2.fe8e06fa.chunk.js",
+    "static/js/2.fe8e06fa.chunk.js.map": "/test-users-page/static/js/2.fe8e06fa.chunk.js.map",
+    "static/js/3.00a6b573.chunk.js": "/test-users-page/static/js/3.00a6b573.chunk.js",
+    "static/js/3.00a6b573.chunk.js.map": "/test-users-page/static/js/3.00a6b573.chunk.js.map",
+    "index.html": "/test-users-page/index.html",
+    "static/css/main.479c0f13.chunk.css.map": "/test-users-page/static/css/main.479c0f13.chunk.css.map",
+    "static/js/2.fe8e06fa.chunk.js.LICENSE.txt": "/test-users-page/static/js/2.fe8e06fa.chunk.js.LICENSE.txt",
+    "static/media/preloader.a7aefd22.gif": "/test-users-page/static/media/preloader.a7aefd22.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e355f00d.js",
+    "static/js/2.fe8e06fa.chunk.js",
+    "static/css/main.479c0f13.chunk.css",
+    "static/js/main.6a2e1f35.chunk.js"
+  ]
+}
